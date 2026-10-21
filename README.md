@@ -150,3 +150,85 @@
 
 После сохранения изменений локальные файлы были отправлены в удалённый репозиторий GitHub с помощью команды `git push`. Отправка отчёта выполнялась в ветку `Report`.
 
+## Лог команд
+
+В ходе выполнения лабораторной работы использовались следующие команды Git:
+
+```bash
+git config --global user.name "4514 Батрасов А.Ю."
+git config --global user.email "abatrasov06@gmail.com"
+
+git clone https://github.com/batrasov/LR6.git
+git pull
+
+git log master
+git checkout branch1
+git log branch1
+git show branch1
+git checkout master
+git show master
+
+git merge branch1
+git diff
+git add mergefile.txt
+git commit -m "Conflict has been resolved!"
+
+git branch -d branch1
+git push origin --delete branch1
+git branch -r
+
+git add randomtest1.txt
+git commit -m "Create first file"
+git push
+
+git add NErandomtest2.txt
+git commit -m "Create second file"
+git push
+
+git log
+git reset HEAD~1
+git log
+
+git branch Report
+git branch
+git push origin Report
+git switch Report
+
+git add README.md
+git commit -m "Update lab report"
+git push -u origin Report
+
+git log --date=format:'%D' --pretty=format:"%h -> %cd, %cn ( %s )"
+
+git add README.md screenshots/
+git commit -m "Update lab report"
+git push origin Report
+```
+
+## История операций в форматированном виде
+
+Для получения истории коммитов с сокращённым хэшем, датой, именем автора и комментарием использовалась команда:
+
+```bash
+git log --all --pretty=format:"%h | %ad | %an | %s" --date=short
+```
+
+Результат выполнения команды:
+
+```text
+c7af7c4 -> 10/21/26, 4514 Батрасов А.Ю. ( Update lab report )
+e35692a -> 10/21/26, 4514 Батрасов А.Ю. ( Update lab report )
+5ca16ff -> 10/21/26, 4514 Батрасов А.Ю. ( Update lab report )
+17b3b7b -> 10/21/26, 4514 Батрасов А.Ю. ( Create first file )
+6988afc -> 10/21/26, 4514 Батрасов А.Ю. ( Conflict has been resolved! )
+50d4565 -> 10/21/26, GitHub ( Create new_file )
+921f53b -> 11/21/20, GitHub ( Обновление информации )
+0f9f50d -> 11/21/20, GitHub ( Заполнил файл )
+c08a654 -> 11/21/20, GitHub ( Файл создан пустым )
+3c6e913 -> 11/21/20, GitHub ( Initial commit )
+
+```
+
+## Вывод
+
+В ходе лабораторной работы я познакомился с основными возможностями системы контроля версий Git и платформы GitHub. Я научился создавать копию удалённого репозитория, клонировать его на компьютер, получать изменения, работать с ветками и разрешать конфликты при слиянии. Также я получил опыт фиксации изменений с помощью коммитов, ведения истории проекта и оформления отчёта в формате Markdown. Выполнение лабораторной работы помогло мне лучше понять принципы работы с локальными и удалёнными репозиториями.
